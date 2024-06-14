@@ -1,0 +1,33 @@
+---
+title: Welcome to Your Campaign Wiki!!
+tableOfContents: false
+---
+import Categories from "../../components/categories.astro"
+import { Card, CardGrid, Aside } from '@astrojs/starlight/components';
+
+#### YOUR CAMPAIGN
+
+<Aside>
+This is an import callout/aside on the front page of your site...
+</Aside>
+
+### Lost? Check these pages out to get you started:
+<CardGrid> 
+    <Card title="Card 1" icon="sun">
+        Visit [this page](/vault/wiki/world) for the world...
+    </Card>  
+    <Card title="Card 2" icon="open-book">
+        Details...
+    </Card>
+    <Card title="Card 3" icon="pen">
+        Details...
+    </Card>
+    <Card title="Card 4" icon="document">
+        Details...
+    </Card>
+</CardGrid>
+
+## Or find notes you're looking for by these categories!
+<CardGrid>
+    <Categories/>
+</CardGrid>

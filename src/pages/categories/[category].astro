@@ -1,0 +1,29 @@
+---
+import SmallCategory from "../../components/category-pages/small-category.astro";
+import CategoryIndex from "../../components/category-pages/category-index.astro";
+export const prerender = true;
+import { getCategories } from "../../config/categories";
+export function getStaticPaths() {
+  return getCategories().map((category) => {
+    return { params: { category } };
+  });
+}
+
+import { readFile } from "fs/promises";
+const { params } = Astro;
+const { category } = params;
+// these pages are statically generated at deploy time so I can call readFile here safely...
+const categoryMapData = await readFile("./public/category-map.json", {
+  encoding: "utf-8",
+});
+const categoryMap = JSON.parse(categoryMapData);
+
+const categoryItems = categoryMap[category];
+const categoryIsSmall = categoryItems.length < 6;
+---
+
+{
+  (categoryIsSmall && (
+    <SmallCategory category={category} categoryItems={categoryItems} />
+  )) || <CategoryIndex category={category} categoryItems={categoryItems} />
+}

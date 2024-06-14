@@ -1,0 +1,191 @@
+{
+  "collapse-filter": true,
+  "search": "-tag:#graph_ignore path:wiki/",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "(tag:#town) OR (tag:#village) ",
+      "color": {
+        "a": 1,
+        "rgb": 16711680
+      }
+    },
+    {
+      "query": "tag:#city",
+      "color": {
+        "a": 1,
+        "rgb": 14352420
+      }
+    },
+    {
+      "query": "tag:#capitol",
+      "color": {
+        "a": 1,
+        "rgb": 11927625
+      }
+    },
+    {
+      "query": "tag:#country",
+      "color": {
+        "a": 1,
+        "rgb": 9568365
+      }
+    },
+    {
+      "query": "tag:#continent",
+      "color": {
+        "a": 1,
+        "rgb": 7143570
+      }
+    },
+    {
+      "query": "tag:#planet",
+      "color": {
+        "a": 1,
+        "rgb": 4784310
+      }
+    },
+    {
+      "query": "tag:#monument",
+      "color": {
+        "a": 1,
+        "rgb": 2359515
+      }
+    },
+    {
+      "query": "tag:#poi",
+      "color": {
+        "a": 1,
+        "rgb": 255
+      }
+    },
+    {
+      "query": "tag:#dead",
+      "color": {
+        "a": 1,
+        "rgb": 0
+      }
+    },
+    {
+      "query": "tag:#bbeg",
+      "color": {
+        "a": 1,
+        "rgb": 10878976
+      }
+    },
+    {
+      "query": "tag:#bad",
+      "color": {
+        "a": 1,
+        "rgb": 10900224
+      }
+    },
+    {
+      "query": "tag:#neutral",
+      "color": {
+        "a": 1,
+        "rgb": 10921472
+      }
+    },
+    {
+      "query": "tag:#good",
+      "color": {
+        "a": 1,
+        "rgb": 5481984
+      }
+    },
+    {
+      "query": "tag:#player",
+      "color": {
+        "a": 1,
+        "rgb": 42496
+      }
+    },
+    {
+      "query": "tag:#party",
+      "color": {
+        "a": 1,
+        "rgb": 11862271
+      }
+    },
+    {
+      "query": "tag:#organisation",
+      "color": {
+        "a": 1,
+        "rgb": 7942911
+      }
+    },
+    {
+      "query": "tag:#family",
+      "color": {
+        "a": 1,
+        "rgb": 5003519
+      }
+    },
+    {
+      "query": "tag:#collective",
+      "color": {
+        "a": 1,
+        "rgb": 4235242
+      }
+    },
+    {
+      "query": "tag:#religion",
+      "color": {
+        "a": 1,
+        "rgb": 3211213
+      }
+    },
+    {
+      "query": "tag:#magical",
+      "color": {
+        "a": 1,
+        "rgb": 16754688
+      }
+    },
+    {
+      "query": "tag:#item",
+      "color": {
+        "a": 1,
+        "rgb": 16730667
+      }
+    },
+    {
+      "query": "tag:#race",
+      "color": {
+        "a": 1,
+        "rgb": 16711757
+      }
+    },
+    {
+      "query": "tag:#class",
+      "color": {
+        "a": 1,
+        "rgb": 16724336
+      }
+    },
+    {
+      "query": "tag:#PIT",
+      "color": {
+        "a": 1,
+        "rgb": 16740507
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": -3,
+  "nodeSizeMultiplier": 0.846949746017655,
+  "lineSizeMultiplier": 0.600173010380623,
+  "collapse-forces": false,
+  "centerStrength": 0,
+  "repelStrength": 20,
+  "linkStrength": 1,
+  "linkDistance": 255,
+  "scale": 0.05932617187499957,
+  "close": false
+}

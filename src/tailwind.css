@@ -1,0 +1,39 @@
+/* src/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+
+    * {
+        color: black !important;
+        border-color: black !important
+    }
+
+    html,
+    .page {
+        background-color: white !important;
+    }
+
+    .header,
+    #starlight__sidebar,
+    .sidebar,
+    .right-sidebar-container,
+    footer {
+        display: none;
+    }
+
+    .main-frame {
+        padding-inline-start: 0;
+        padding-top: 0;
+    }
+    
+    .main-pane {
+        width: 100%;
+        --sl-content-margin-inline: unset;
+    }
+
+    .sl-container {
+        --sl-content-width: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+---
+import { LinkCard } from "@astrojs/starlight/components";
+import { CATEGORY_EMOJI } from "../config/categories";
+import { toTitleCase } from "../config/utils";
+const map = CATEGORY_EMOJI as { [key: string]: string };
+const { category } = Astro.props as { category: string };
+const emoji = map[category];
+const heading = toTitleCase(category);
+const url = `/categories/${category}`;
+---
+
+<LinkCard title={`${emoji} ${heading}`} href={url} />

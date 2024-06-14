@@ -1,0 +1,52 @@
+---
+export const prerender = false;
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+const { request } = Astro;
+const { url: rawUrl } = request;
+const lastIndex = rawUrl.lastIndexOf("/");
+const page = rawUrl.substring(lastIndex + 1);
+const decodedPageName = decodeURIComponent(page);
+// these pages are dynamically generated at runtime so I must fetch the JSON from the server to parse it safely.
+// probably doesn't scale well but I think it's the best I can do for now.
+const url = new URL(rawUrl);
+const res = await fetch(`${url.origin}/reference-map.json`);
+console.log({ status: res.status });
+const referenceMap = await res.json();
+const references = referenceMap[decodedPageName];
+console.log({ decodedPageName, references });
+const frontmatterOpts = {
+  title: "404: File Not Found!",
+  tableOfContents: false,
+  hero: {
+    title: "Uh oh!",
+    tagline:
+      "Page not found. Check the URL or try using the search bar to find what you're looking for!",
+  },
+};
+
+if (references) {
+  frontmatterOpts.hero = undefined;
+}
+---
+
+<StarlightPage frontmatter={frontmatterOpts}>
+  {
+    references && (
+      <>
+        <h3>
+          The page: <code>{decodedPageName}</code> doesn't exist at this moment
+          but is referred to by these {references.length} page(s)...
+        </h3>
+        <ul>
+          {references.map(({ name, ref }) => {
+            return (
+              <a href={`/vault/wiki/${ref}`}>
+                <li>{name}</li>
+              </a>
+            );
+          })}
+        </ul>
+      </>
+    )
+  }
+</StarlightPage>

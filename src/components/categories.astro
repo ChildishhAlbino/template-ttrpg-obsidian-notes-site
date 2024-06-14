@@ -1,0 +1,13 @@
+---
+import { CATEGORIES } from "../config/categories";
+
+import CategoryCard from "./category-card.astro";
+---
+
+{
+  CATEGORIES &&
+    CATEGORIES.length &&
+    CATEGORIES.map((category) => {
+      return <CategoryCard category={category} />;
+    })
+}

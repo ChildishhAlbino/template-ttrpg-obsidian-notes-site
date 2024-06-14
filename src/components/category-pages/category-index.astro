@@ -1,0 +1,59 @@
+---
+import CategoryList from "../category-lists/basic-list.astro";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { getCategoryEmoji } from "../../config/categories";
+import { toTitleCase } from "../../config/utils";
+
+const { category, categoryItems } = Astro.props;
+
+const categoryItemsByFirstLetter = categoryItems.reduce((acc, item) => {
+  const firstLetter = item.name.toLowerCase()[0];
+  const existingList = acc[firstLetter];
+  if (!existingList) {
+    acc[firstLetter] = [];
+  }
+  acc[firstLetter].push(item);
+  return acc;
+}, {});
+
+const letters = Object.keys(categoryItemsByFirstLetter);
+
+const emojiMap = getCategoryEmoji() as { [key: string]: string };
+
+const frontmatterOpts = {
+  title: `${emojiMap[category]} ${toTitleCase(category)}`,
+  tableOfContents: true,
+};
+
+const headings = letters
+  .map((letter) => {
+    const rootHeading = {
+      depth: 2,
+      slug: `${letter.toUpperCase()}`,
+      text: letter.toUpperCase(),
+    };
+    const categoryItems = categoryItemsByFirstLetter[letter];
+    const subHeadings = categoryItems.map((item) => {
+      return { depth: 3, slug: item.ref, text: item.name };
+    });
+    return [rootHeading, ...subHeadings];
+  })
+  .flat();
+
+const letterSections = Object.entries(categoryItemsByFirstLetter);
+---
+
+<StarlightPage frontmatter={frontmatterOpts} headings={headings}>
+  {
+    letterSections &&
+      letterSections.map(([letter, items]) => {
+        const upperCaseLetter = letter.toUpperCase();
+        return (
+          <>
+            <h3 id={upperCaseLetter}>{upperCaseLetter}</h3>
+            <CategoryList categoryItems={items} />
+          </>
+        );
+      })
+  }
+</StarlightPage>

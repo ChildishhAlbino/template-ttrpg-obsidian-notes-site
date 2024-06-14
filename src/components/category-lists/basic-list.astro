@@ -1,0 +1,15 @@
+---
+const { categoryItems } = Astro.props;
+---
+
+<ul>
+  {
+    categoryItems.map(({ name, ref }) => {
+      return (
+        <a href={`/vault/wiki/${ref}`}>
+          <li id={ref}>{name}</li>
+        </a>
+      );
+    })
+  }
+</ul>
