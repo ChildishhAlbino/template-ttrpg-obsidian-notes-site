@@ -54,6 +54,14 @@ export const starlightConfig = starlight({
 		// edit or remove this it's up to you
 		baseUrl: `https://github.com/ChildishhAlbino/template-ttrpg-obsidian-notes-site`
 	},
+	head: [
+		{
+			"tag": "script",
+			"attrs": {
+				"src": "/hide-links-on-print.js"
+			}
+		}
+	],
 	disable404Route: true
 })
 // https://astro.build/config
